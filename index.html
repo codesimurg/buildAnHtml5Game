@@ -1,24 +1,31 @@
 <!DOCTYPE HTML>
-<html lang="en-UK">
+<html lang="en-US">
 <head>
 	<meta charset="utf8">
-	<title>PopBubbles</title>
+	<title>Pop Bubbles</title>
 	<link href="main.css" rel="stylesheet">
 	<script src="modernizr.js"></script>
 	<script>
-	Modernizr.load({
-		load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js",
-		complete: function() {
-			if(!window.jQuery){
-				Modernizr.load("jquery-1.11.2.min.js");
+		Modernizr.load([
+			{
+				load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js",
+				complete: function () {
+					if(!window.jQuery){
+						Modernizr.load("jquery-1.11.2.min.js");
+					}
+				}
+			},
+			"ui.js",
+			{
+			load : "game.js",
+			complete: function(){
+				$(function(){
+					var game = new PopBubbles.Game();
+					game.init();
+				})
 			}
-		},
-	},
-	{
-		load: "game.js"
-	}])
+		}]);
 	</script>
-	
 </head>
 <body>
   <div id="page">
@@ -35,4 +42,4 @@
 	  </div>
   </div>
 </body>
-</html> 
+</html>
