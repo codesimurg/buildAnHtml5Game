@@ -5,6 +5,20 @@
 	<title>PopBubbles</title>
 	<link href="main.css" rel="stylesheet">
 	<script src="modernizr.js"></script>
+	<script>
+	Modernizr.load({
+		load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js",
+		complete: function() {
+			if(!window.jQuery){
+				Modernizr.load("jquery-1.11.2.min.js");
+			}
+		},
+	},
+	{
+		load: "game.js"
+	}])
+	</script>
+	
 </head>
 <body>
   <div id="page">
